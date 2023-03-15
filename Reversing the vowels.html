@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reversing the vowels</title>
+</head>
+<body>
+    
+    <script>
+        function modify(str) {
+            let vowels = ['a', 'e', 'i', 'o', 'u'];
+            let v = [];
+            let rstr = '';
+            for (let i = 0; i < str.length; i++) {
+                for (let j = 0; j < vowels.length; j++) {
+                    if (str[i] == vowels[j]) {
+                        v.push(str[i])
+                    }
+                }
+            }
+            rstr = v.reverse().join('');
+            return replaceElm(findIndex(str, v), str, rstr);
+        }
+
+        function findIndex(str, velm) {
+            let index = [];
+            for (let i = 0; i < velm.length; i++) {
+                index.push(str.indexOf(velm[i]));
+            }
+            return index.reverse();
+        }
+
+        function replaceElm(indx, str, vwls) {
+            let arr = str.split('');
+            for (let i = 0; i < indx.length; i++) {
+            arr.splice(indx[i], 1, vwls[i]);
+            }
+            
+            return arr.join('');
+        }
+
+        let res = modify('practice');
+        console.log(res);
+    </script>
+</body>
+</html>
