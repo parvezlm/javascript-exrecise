@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kth smallest element in array</title>
+</head>
+<body>
+    
+    <script>
+        function smallestNum(arr, k) {
+            let res = sortArr(arr);
+            return res[k - 1];
+        }
+
+        function sortArr(arr) {
+            if(arr.length <= 1) return arr;
+            let pivot = arr[0];
+            let left = [];
+            let right = [];
+            for (let i = 1; i < arr.length; i++) {
+                if (pivot > arr[i]) {
+                    left.push(arr[i]);
+                } else {
+                    right.push(arr[i]);
+                }
+            }
+            
+            return [...sortArr(left), pivot, ...sortArr(right)];
+            
+        }
+
+        let res = smallestNum([1,2,3,7,5], 3);
+        console.log(res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- script -->
+    <script>
+        function missingNum(arr) {
+            // if array not sort then sort the array
+            if(arr[0] > arr[1]) {
+                sortArr(arr);
+            }
+
+            for(let i = 0; i < arr.length; i++) {
+                if(arr[i + 1] - arr[i] > 1) {
+                    return arr[i] + 1;
+                }
+            };
+
+        }
+
+        // sort array using selection sort
+        function sortArr(arr) {
+            let minIndex;
+            for(let i = 0; i < arr.length; i++) {
+                minIndex = i;
+                for(let j = i + 1; j < arr.length; j++) {
+                    if(arr[j] < arr[minIndex]) {
+                        minIndex = j;
+                    }
+                }
+                swap(arr, minIndex, i);
+            }
+            return arr;
+        }
+
+        // swap aray elm
+        function swap(arr, minIndex, i) {
+            let temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
+
+        let res = missingNum([1,2,3,5]);
+        console.log(res);
+
+         //sort array using bubble sort
+        // function sortArr(arr) {
+        //     for(let i = 0; i < arr.length; i++) {
+        //         if(arr[i] > arr[i + 1]) {
+        //             let temp = arr[i];
+        //             arr[i] = arr[i + 1];
+        //             arr[i + 1] = temp;
+        //             i = -1;
+        //         }
+        //     }
+        //     return arr;
+        // }
+    </script>
+</body>
+</html>

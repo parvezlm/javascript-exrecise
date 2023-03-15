@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble sort, Selection sort & quick sort</title>
+</head>
+<body>
+    
+    <script>
+        // quick sort
+        function quickSort(arr) {
+        if (arr.length <= 1) return arr;
+            // let pivot = arr[0]; frist way to find pivot
+            let pivot = findPivot(arr); // another way to find pivot
+            let lftelm = [];
+            let rhtelm = [];
+            for (let i = 1; i < arr.length; i++) {
+                if (pivot > arr[i]) {
+                    lftelm.push(arr[i]);
+                } else {
+                    rhtelm.push(arr[i]);
+                }
+            }
+            
+            return [...quickSort(lftelm), pivot, ...quickSort(rhtelm)]
+        }
+
+        function findPivot(arr) {
+            let mid = Math.floor(arr.length / 2);
+            let temp = arr[0];
+            arr[0] = arr[mid];
+            arr[mid] = temp;
+            return arr[0];
+        }
+
+        let res = quickSort([15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]);
+        console.log('quick sort', res);
+
+        //bubble sort
+        function bubbleSort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] > arr[i + 1]) {
+                let temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+                i = -1;
+            }
+        }
+        return arr;
+        }
+
+        let bsort = bubbleSort([15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]);
+        console.log('bubble sort', bsort);
+
+        // selection sort
+        function selectionSort(arr) {
+            let minIndex;
+            for (let i = 0; i < arr.length; i++) {
+                minIndex = i;
+                for (let j = i + 1; j < arr.length; j++) {
+                    if (arr[j] < arr[minIndex]) {
+                        minIndex = j;
+                    } 
+                }
+             swap(arr, minIndex, i);
+            }
+            return arr;
+        }
+
+        function swap(arr, minIndex, index) {
+            let temp = arr[minIndex];
+            arr[minIndex] = arr[index];
+            arr[index] = temp;
+        }
+
+        let ssort = selectionSort([15,14,13,12,11,10,9,8,7,6,5,4,3,2,1]);
+        console.log('selection sort', ssort);
+    </script>
+</body>
+</html>

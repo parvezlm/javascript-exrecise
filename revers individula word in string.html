@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revers a particular word in string</title>
+</head>
+<body>
+    
+    <script>
+        function reverseWords(str) {
+            let arr = str.split('.');
+            let rword = [];
+            for(let i = 0; i < arr.length; i++) {
+                rword.push(reversStr(arr[i]))
+            }
+            return rword.join('.')
+        }
+
+        function reversStr(str) {
+            let wrd = '';
+            for (let i = str.length - 1; i >= 0; i--) {
+                wrd += str[i];
+            }
+            return wrd;
+        }
+
+        let res = reverseWords('i.like.this.program.very.much');
+        console.log(res);
+    </script>
+</body>
+</html>

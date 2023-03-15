@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- script -->
+    <script>
+        // sort array using bubble sort
+        function bubbleSort(arr) {
+        for(let i = 0; i < arr.length; i++) {
+            if(arr[i] > arr[i + 1]) {
+            let temp = arr[i];
+            arr[i] = arr[i + 1];
+            arr[i + 1] = temp;
+            i = -1;
+            }
+        }
+        return arr;
+        }
+
+
+        //sort array using selection sort
+        function selectionSort(arr) {
+        let minIndex;
+        for(let i = 0; i < arr.length; i++) {
+            minIndex = i;
+            for(let j = i + 1; j < arr.length; j++) {
+            if(arr[j] < arr[minIndex]) {
+                minIndex = j;
+            }
+            }
+            swap(arr, minIndex, i)
+        }
+        return arr;
+        }
+
+        // swap
+        function swap(arr, minIn, i) {
+        let temp = arr[minIn];
+        arr[minIn] = arr[i];
+        arr[i] = temp;
+        }
+
+        let res = selectionSort([0,2,1,2,0]);
+        console.log('selection sort=>',res);
+        
+        let res1 = bubbleSort([0,2,1,2,0]);
+        console.log('bubble sort=>',res1);
+    </script>
+</body>
+</html>

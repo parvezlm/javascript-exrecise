@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Common Prefix in an Array</title>
+</head>
+<body>
+    
+    <script>
+        function longestCommonPrefix(arr) {
+            let res = [];
+            let minLen = arr.map(item => item.length).sort((a, b) => a - b)[0];
+            let minLetter = arr.find(item => item.length === minLen ? item : '');
+            let str = '';
+            
+            if(arr[0].charAt(0) !== arr[1].charAt(0)) return -1;
+            
+            for(let i = 0; i < arr.length; i++) {
+                let wrd = arr[i]
+                for(let j = 0; j < minLetter.length; j++) {
+                    if(minLetter[j] === wrd[j]) {
+                        str += wrd[j];
+                    }
+                }
+                res.push(str);
+                str = '';
+            }
+            let preFix = res.sort()[0];
+            return preFix;
+        }
+
+        let a = ['geeksforgeeks', 'geeks', 'geek', 'geezer']
+        let res = longestCommonPrefix(a);
+        console.log(res);
+    </script>
+</body>
+</html>

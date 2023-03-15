@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Missing And Repeating</title>
+</head>
+<body>
+    
+    <script>
+        function findTwoElement(arr) {
+            let obj = {};
+            let missElm;
+            let rep;
+            
+            if(arr.length === 0) {
+                return -1;
+            }
+            
+            for(let i = 0; i < arr.length; i++) {
+                obj[arr[i]] = (obj[arr[i]] || 0) + 1;
+                if(arr[i + 1] - arr[i] === 0) {
+                    missElm =  arr[i] - 1;
+                    if(arr.includes(missElm)) {
+                        missElm = 0;
+                    }
+                } else if(arr[i + 1] - arr[i] > 1) {
+                    missElm =  arr[i] + 1;
+                }
+                }
+            
+            for(let key in obj) {
+                if(obj[key] > 1) {
+                    rep = key;
+                }
+            }
+            
+            return [rep * 1, missElm];
+        
+        }
+
+        let res = findTwoElement([1,3,3]);
+        console.log(res);
+    </script>
+</body>
+</html>

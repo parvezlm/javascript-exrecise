@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Repeating Element</title>
+</head>
+<body>
+    
+    <script>
+        function firstRepeated(arr) {
+            let i = 0;
+            let j = i + 1;
+            while(i < arr.length && j < arr.length) {
+                if(arr[i] === arr[j]) {
+                    return i + 1;
+                }
+                
+                j++;
+                
+                if(j === arr.length) {
+                    i++;
+                    j = i + 1;
+                }
+            }
+            return -1;
+        } 
+
+        // second approach
+        // function firstRepeated(arr) {
+        // for(let i = 0; i < arr.length; i++) {
+        //     for(let j = i + 1; j < arr.length; j++) {
+        //         if(arr[i] === arr[j]) {
+        //             return i + 1;
+        //         }
+        //     }
+        // }
+        // return -1;
+        // } 
+
+        let res = firstRepeated([1, 5, 3, 4, 3, 6]);
+        console.log(res);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest Palindrome in a String</title>
+</head>
+<body>
+ 
+    <script>
+        function longestPalin(str) {
+            if (str.length === 1) {
+                return str;
+            }
+
+                let st = "";
+                for (let i = str.length; i > 0; i--) {
+                    for (let j = 0; j < str.length - i + 1; j++) {
+                    st = str.substring(j, i + j);
+                    if (isPallindrome(st)) {
+                        return st;
+                    }
+                    }
+                }
+                return "";
+            }
+
+        function isPallindrome(str) {
+                let i = 0;
+                let j = str.length - 1;
+                while(i < j) {
+                if(str.charAt(i) != str.charAt(j)) {
+                    return false;
+                }
+                i++;
+                j--;
+            }
+            return true;
+        }
+
+        let res = longestPalin('forgeeksskeegfor');
+        console.log(res);
+    </script>
+</body>
+</html>
