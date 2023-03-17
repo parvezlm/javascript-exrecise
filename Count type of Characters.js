@@ -7,17 +7,17 @@ function count(str) {
     let lower = 0;
     let spe = 0;
     let digit = 0;
-    
+
     for (let i = 0; i < str.length; i++) {
         let ch = str[i];
         if (hasNumber.test(ch)) {
             digit++;
         } else if (isUpperCaseLetter.test(ch)) {
-           upper++;
+            upper++;
         } else if (isLowerCaseLetter.test(ch)) {
-           lower++;
+            lower++;
         } else {
-           spe++;
+            spe++;
         }
     }
     return [upper, lower, digit, spe]
