@@ -1,12 +1,12 @@
 // Count type of Characters
 function count(str) {
+    const hasNumber = /\d/;
+    const isLowerCaseLetter = /[a-z]/;
+    const isUpperCaseLetter = /[A-Z]/;
     let upper = 0;
     let lower = 0;
     let spe = 0;
     let digit = 0;
-    const hasNumber = /\d/;
-    const isLowerCaseLetter = /[a-z]/;
-    const isUpperCaseLetter = /[A-Z]/;
     
     for (let i = 0; i < str.length; i++) {
         let ch = str[i];
