@@ -24,3 +24,4 @@ function reverseInGroups(arr, k) {
 
 let res = reverseInGroups([1, 2, 3, 4, 5, 6, 7, 8, 9], 2);
 console.log(res);
+//output : [2, 1, 4, 3, 6,5, 8, 7, 9]
