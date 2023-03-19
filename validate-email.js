@@ -1,5 +1,5 @@
 // validate email
-function checkmail(val) {
+function validateEmail(val) {
     let regex = /^\S+@\S+\.\S+$/;
     let elm = document.getElementById('error');
     let errMsg = {
@@ -17,6 +17,6 @@ function checkmail(val) {
             elm.classList.remove('invalid');
         }
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
