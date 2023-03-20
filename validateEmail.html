@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form validation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        .form-control {
+            width: 100%;
+            height: 48px;
+            padding: 5px 15px;
+            border: 1px solid #888;
+            border-radius: 4px;
+            outline: 0;
+        }
+
+        .form-control:focus {
+            border-color: rgb(0, 162, 255);
+        }
+
+        .banner {
+            padding: 70px 60px;
+        }
+
+        .form_wraper {
+            max-width: 540px;
+            margin: 0 auto;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            padding: 30px 15px;
+        }
+
+        .btn {
+            border: 1px solid #03A9F4;
+            border-radius: 4px;
+            padding: 8px 15px;
+            color: #fff;
+            background-color: #03A9F4;
+        }
+
+        .error {
+            font-size: 14px;
+            color: rgb(156, 37, 37);
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .show {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="banner">
+        <div class="container">
+            <div class="form_wraper">
+                <form>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" onblur="validateForm(this, 'name')">
+                        <span class="error hide name">asdf</span>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile</label>
+                        <input type="number" class="form-control" id="mobile" onblur="validateForm(this, 'mobile')">
+                        <span class="error hide mobile"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" id="email" onblur="validateForm(this, 'email')">
+                        <span class="error hide email"></span>
+                    </div>
+                    <button type="button" class="btn" onclick="submitForm()">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- script start-->
+    <script>
+        const errorMsg = {
+            required: 'Field is required',
+            emailPattern: 'Mail is not valid',
+            mobilePattern: 'Enter 10 digits mobile number'
+        };
+
+        const regexEmail = /^\S+@\S+\.\S+$/;
+
+        function submitForm() {
+            let name = document.getElementById('name').value;
+            let mobile = document.getElementById('mobile').value;
+            let email = document.getElementById('email').value;
+            
+            if (!name && !mobile && !email) {
+                return;
+            } else if ((!name || !email || !mobile || !regexEmail.test(email))) {
+                return;
+            }
+
+            const data = {
+                name: name,
+                mobile: mobile,
+                email: email
+            }
+
+            console.log('Form submitted', data);
+        
+        }
+
+        //display error message
+        function showErrorMsg(msg) {
+            let elms = document.querySelectorAll('.error');
+            elms.forEach(item => {
+                item.innerText = msg;
+                item.classList.add('show');
+            });
+        }
+
+        //validate individula field
+        function validateForm(elm, controlName) {
+            if (!elm.value) {
+                 document.querySelector('.' + controlName).innerText = errorMsg.required;
+                 document.querySelector('.' + controlName).classList.add('show');
+            } else if (controlName === 'email') {
+                validateEmail(elm.value);
+            } else {
+                document.querySelector('.' + controlName).classList.remove('show');
+            }
+        }
+
+        function validateEmail(val) {
+            if (!regexEmail.test(val)) {
+                document.querySelector('.email').innerText = errorMsg.emailPattern; 
+                document.querySelector('.email').classList.add('show');
+            } else {
+                document.querySelector('.email').classList.remove('show'); 
+            }
+        }
+
+    </script>
+    <!-- script end-->
+</body>
+</html>
