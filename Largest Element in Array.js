@@ -1,4 +1,4 @@
-// Largest Element in Array
+//largest element in array
 
 function largest(arr) {
   let max = 0;
