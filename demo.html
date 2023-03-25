@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Difference between regular fun() and arrow fun()</h1>
+  <h2>'this' with Arrow function</h2>
+  <button type="button" id="btn">Click</button>
+  <p id="demo"></p>
+  <ul>
+    <li>Arrow function is introduced in ES6 2015</li>
+    <li>There is no binding of this with the arrow function.</li>
+    <li>Always represent global object (window)</li>
+    <li>
+      Ex - 
+      If arrow function call on button then it still represent global object
+      [object, window] like that</li>
+  </ul>
+  <hr>
+  <h2>'this' Regular function</h2>
+  <button type="button" id="_btn">Click</button>
+  <p id="_demo"></p>
+  <ul>
+    <li>Regular function always there in js</li>
+    <li>In a regular function this keyword represents the object that called the function.</li>
+    <li>Ex - 
+      If you call the button, it represents the button. like [object,HTMLButtonElement]
+      If you call a global object then represent a window object etc.
+      </li>
+  </ul>
+
+  <script>
+    // ====================this with arrow function====================
+    let hello = () => {
+      document.getElementById("demo").innerHTML += this;
+    }
+    
+    //The window object calls the function:
+    window.addEventListener("load", hello);
+    
+    //A button object calls the function:
+    document.getElementById("btn").addEventListener("click", hello);
+
+
+    // ====================this with regualr function====================
+    let _hello = function () {
+      document.getElementById("_demo").innerHTML += this;
+    }
+
+    //The window object calls the function:
+    window.addEventListener("load", _hello);
+    
+    //A button object calls the function:
+    document.getElementById("_btn").addEventListener("click", _hello);
+
+  </script>
+</body>
+</html>
