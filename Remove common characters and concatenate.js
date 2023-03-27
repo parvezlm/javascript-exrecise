@@ -20,3 +20,4 @@ function removeDup(str1, str2) {
 
 let res = concatenatedString('abcs', 'cxzca');
 console.log(res);
+//output : "bsxz"
