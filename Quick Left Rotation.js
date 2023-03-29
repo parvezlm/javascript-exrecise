@@ -12,5 +12,6 @@ function leftRotate(arr, k) {
   
   let res = leftRotate([1, 2, 3, 4, 5, 6], 12);
   console.log(res);
+//   output : [3,4,5,6,1,2]
   
   
