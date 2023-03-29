@@ -33,3 +33,4 @@ function checkLesser(arr, index) {
 
 let res = zigZag([4, 3, 7, 8, 6, 2, 1]);
 console.log(res);
+//output : [3, 7, 4, 8, 2, 6, 1]
