@@ -4,9 +4,9 @@ function zigZag(arr) {
     let flag = true;
     for (let i = 0; i < arr.length; i++) {
         if (flag) {
-            checkGreater(arr, i);
+            checkGreaterAndSwap(arr, i);
         } else {
-            checkLesser(arr, i);
+            checkLesserAndSwap(arr, i);
         }
         flag = !flag;
     }
@@ -14,7 +14,7 @@ function zigZag(arr) {
 }
 
 // swap if elm is greather then to the next 
-function checkGreater(arr, index) {
+function checkGreaterAndSwap(arr, index) {
     if (arr[index] > arr[index + 1]) {
         let temp = arr[index];
         arr[index] = arr[index + 1];
@@ -23,7 +23,7 @@ function checkGreater(arr, index) {
 }
 
 // swap if elm is less then to the next
-function checkLesser(arr, index) {
+function checkLesserAndSwap(arr, index) {
     if (arr[index] < arr[index + 1]) {
         let temp = arr[index];
         arr[index] = arr[index + 1];
