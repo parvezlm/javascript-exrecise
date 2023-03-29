@@ -19,3 +19,4 @@ function sum(arr) {
 
 let res = minValueToBalance([1, 2, 1, 2, 1, 3]);
 console.log(res);
+// output : 2
