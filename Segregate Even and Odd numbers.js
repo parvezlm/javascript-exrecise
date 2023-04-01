@@ -14,7 +14,7 @@ function segregateEvenOdd(arr) {
 
 }
 
-// sort array
+// sort array using quick sort
 function sortArr(arr) {
     if (arr.length <= 1) return arr;
     let pivot = arr[0];
@@ -33,3 +33,5 @@ function sortArr(arr) {
 
 let res = segregateEvenOdd([12, 34, 45, 9, 8, 90, 3]);
 console.log(res);
+
+//output: [8, 12, 34, 90, 3, 9, 45]
