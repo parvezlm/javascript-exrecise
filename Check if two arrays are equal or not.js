@@ -8,15 +8,17 @@ function check(arr1, arr2) {
     }
 
     const arr = [];
+    let count = 0;
 
     arr1.forEach((item, i) => {
         if (item == arr2[i]) {
-            arr.push(true)
+            // arr.push(true)
+            count++;
         }
     })
 
 
-    return arr1.length === arr.length ? 'Equal' : 'not Equal';
+    return arr1.length === count ? 'Equal' : 'not Equal';
 }
 
 // sort array using quick sort
