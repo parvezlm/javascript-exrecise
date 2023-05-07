@@ -21,4 +21,4 @@ function segregateEvenOdd(arr) {
 let res = segregateEvenOdd([12, 34, 45, 9, 8, 90, 3]);
 console.log(res);
 
-//   output: [8, 12, 34, 90, 3, 9, 45]
+//output: [8, 12, 34, 90, 3, 9, 45]
