@@ -1,10 +1,11 @@
 // Count the Specials
 
 function countSpecials(arr, k) {
+    let num = Math.floor(arr.length / k);
     let countObj = findCounts(arr, k);
     let count = 0;
     for (let item in countObj) {
-        if (countObj[item] >= k) {
+        if (countObj[item] >= num) {
             count++;
         }
     }
@@ -12,7 +13,6 @@ function countSpecials(arr, k) {
 }
 
 function findCounts(arr, k) {
-    let num = Math.floor(arr.length / k);
     let obj = {};
     for (let item of arr) {
         if (item in obj) {
@@ -27,3 +27,4 @@ function findCounts(arr, k) {
 
 let res = countSpecials([1, 4, 1, 2, 4], 2);
 console.log(res);
+// output: 2
