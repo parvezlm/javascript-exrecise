@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create dynamic table</title>
+
+    <!-- css -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-size: 16px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding-left: 0 15px;
+        }
+
+        .wraper {
+            padding: 60px 0 70px;
+        }
+
+        .table-wraper table {
+            width: 100%;
+        }
+
+        table th {
+            font-weight: 600;
+        }
+
+        table th, table td {
+            padding: 8px 15px;
+            text-align: left;
+            text-transform: capitalize;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+    </style>
+</head>
+<body>
+    <section class="wraper">
+        <div class="container">
+            <div class="table-wraper">
+
+            </div>
+        </div>
+    </section>
+
+
+
+   <!-- script -->
+    <script>
+        function createTable(arr) {
+            let obj = arr;
+            let heading = [];
+            let content = [];
+
+            obj.forEach(item => {
+                heading = Object.keys(item);
+            });
+
+            obj.forEach(item => {
+                content = Object.values(item);
+            });
+
+            let wraper = document.querySelector('.table-wraper');
+            let table = document.createElement('table');
+            let headTr = document.createElement('tr');
+            let bodyTr = document.createElement('tr');
+            let headNode = '';
+            let bodyNode = '';
+            
+            //generate table heading
+            heading.forEach(item => {
+                let th = document.createElement('th');
+                headNode = document.createTextNode(item);
+                th.appendChild(headNode);
+                headTr.appendChild(th);
+            });
+            
+            // generate table content
+            content.forEach(item => {
+                let td = document.createElement('td');
+                bodyNode = document.createTextNode(item);
+                td.appendChild(bodyNode);
+                bodyTr.appendChild(td);
+            })
+            
+            
+            table.appendChild(headTr);
+            table.appendChild(bodyTr);
+            wraper.appendChild(table);
+            }
+
+            let arr = [
+            {
+                name: "doe",
+                age: 30,
+                salary: 400000,
+                designation: 'reactjs developer',
+                address: 'ny'
+            },
+            {
+                name: "jhon",
+                age: 26,
+                salary: 500000,
+                designation: 'angular developer',
+                address: 'ct'
+            }
+            ];
+
+            createTable(arr);
+    </script>
+</body>
+</html>
