@@ -1,7 +1,9 @@
 function maxProduct(arr) {
     let products = [];
     for (let i = 0; i < arr.length; i++) {
-        products.push(arr[i + 1] ? arr[i] * arr[i + 1] : 0);
+        if (arr[i + 1]) {
+            products.push(arr[i] * arr[i + 1]);
+        }
     }
   return Math.max(products[0], products[products.length - 1]);
 }
