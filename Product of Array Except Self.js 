@@ -1,0 +1,18 @@
+// Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]
+
+function productExceptSelf(arr) {
+    let ans = [];
+    for (let i = 0; i < arr.length; i++) {
+        let num = 1;
+        for (let j = 0; j < arr.length; j++) {
+            if (i == j) continue;
+            num *= arr[j];
+        }
+        ans.push(num);
+    }
+}
+
+let res = productExceptSelf([1,2,3,4]);
+console.log(res);
+
+//output: [24, 12, 8, 6]
