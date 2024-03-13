@@ -15,7 +15,7 @@ var maxSumSubarr = function(nums, k) {
   return maxSum;
 };
 
-let res = maxSumSubarr([4,1,3,5,1,2,3,2,1,1,5], 5);
+let res = maxSumSubarr([4,1,3,5,1,2,3,2,1,1,5], 3);
 console.log(res);
 
 //output: 9
