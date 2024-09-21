@@ -18,7 +18,7 @@ function findLucky (arr) {
         }
     }
     let luckyElm = lucky.sort((a, b) => a - b);
-    return lucky.length === 0 ? -1 : lucky[lucky.length - 1];
+    return lucky.length === 0 ? -1 : luckyElm[luckyElm.length - 1];
 };
 
 let res = findLucky([4,3,2,2,4,1,3,4,3]);
