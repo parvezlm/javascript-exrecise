@@ -11,6 +11,6 @@ function findMedianSortedArrays (nums1, nums2) {
     }
 };
 
-let res = findMedianSortedArrays([3], [-2,-1]);
+let res = findMedianSortedArrays([3], [-2,-1]); 
 console.log(res);
 //output: -1;
