@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        font-size: 16px;
+      }
+
+      label {
+        margin-bottom: 5px;
+        display: inline-block;
+      }
+
+      .main {
+        padding: 60px 0 70px;
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      .form-group {
+        margin-bottom: 15px;
+      }
+
+      .form-control {
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #222;
+        height: 45px;
+        padding: 15px;
+        box-sizing: border-box;
+      }
+
+      .login_form {
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .submit_btn {
+        background-color: #444;
+        color: #fff;
+        border: 1px solid #555;
+        border-radius: 4px;
+        padding: 13px 30px;
+        cursor: pointer;
+      }
+      .invalid {
+        border-color: #ca0505;
+      }
+      .errorMsg {
+        color: #ca0505;
+        font-size: 14px;
+      }
+      .hide {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="main">
+      <div class="container">
+        <div class="login_form">
+          <form>
+            <div class="form-group" id="email_form_group">
+              <label for="username">Username</label>
+              <input type="email" class="form-control" id="username" onblur="validateEmail()"/>
+            </div>
+            <div class="form-group">
+              <label for="psw">Password</label>
+              <input type="password" class="form-control" id="psw" />
+            </div>
+            <button type="button" class="submit_btn" onclick="submitForm(this)">Submit</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- //script -->
+    <script src="./app.js"></script>
+  </body>
+</html>

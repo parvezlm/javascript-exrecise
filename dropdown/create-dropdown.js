@@ -1,6 +1,5 @@
 const url = 'https://jsonplaceholder.typicode.com/todos';
 
-
 async function fetchTodos() {
     try {
         const response = await fetch(url);
