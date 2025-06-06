@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input id= "red" type="checkbox" value="red" onchange="checkboxChange(event)" />
+    <label for="red">Red</label>
+    <input id="green_" type="checkbox" value="green" onchange="checkboxChange(event)" />
+    <label for="green_">green</label>
+
+    <input id= "red_1" type="checkbox" value="red" onchange="checkboxChange(event)" />
+    <label for="red_1">Red</label>
+    <input id="green_1" type="checkbox" value="green" onchange="checkboxChange(event)" />
+    <label for="green_1">green</label>
+
+
+    <input id= "red_2" type="checkbox" value="red" onchange="checkboxChange(event)" />
+    <label for="red_2">Red</label>
+    <input id="green_2" type="checkbox" value="green" onchange="checkboxChange(event)" />
+    <label for="green_2">green</label>
+
+
+    <input id= "red_3" type="checkbox" value="red" onchange="checkboxChange(event)" />
+    <label for="red_3">Red</label>
+    <input id="green_3" type="checkbox" value="green" onchange="checkboxChange(event)" />
+    <label for="green_3">green</label>
+
+
+
+    <!-- <script></script> -->
+    <script>
+        function checkboxChange(event) {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const checkedCheckboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+            if (event.target.value === 'red' && event.target.checked) {
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.value === 'green') {
+                        checkbox.disabled = true;
+                    }
+                });
+            } else if (event.target.value === 'green' && event.target.checked) {
+                checkboxes.forEach((checkbox) => {
+                    if (checkbox.value === 'red') {
+                        checkbox.disabled = true;
+                    }
+                });
+            } else {
+                checkboxes.forEach((checkbox) => {
+                    if (checkedCheckboxes.length === 0) {
+                        checkbox.disabled = false;
+                    }
+                });
+            }
+        }  
+
+    </script>
+</body>
+</html>
