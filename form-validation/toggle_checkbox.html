@@ -50,11 +50,18 @@
                     }
                 });
             } else {
-                checkboxes.forEach((checkbox) => {
-                    if (checkedCheckboxes.length === 0) {
+                // checkboxes.forEach((checkbox) => {
+                //     if (checkedCheckboxes.length === 0) {
+                //         checkbox.disabled = false;
+                //     }
+                // });
+
+                if (checkedCheckboxes.length === 0) {
+                    checkboxes.forEach((checkbox) => {
                         checkbox.disabled = false;
-                    }
-                });
+                    });
+                }
+
             }
         }  
 
